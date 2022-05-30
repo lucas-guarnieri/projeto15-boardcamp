@@ -18,5 +18,5 @@ server.use(gamesRouter);
 server.use(customersRouter);
 server.use(rentalsRouter);
 
-const port = process.env.PORT || 5000; //TODO: MUDAR PARA 4000
+const port = process.env.PORT || 4000; 
 server.listen(port, () => console.log(chalk.bold.green(`server running on port ${port}`)));
