@@ -51,7 +51,9 @@ export async function postGames(req, res){
         `,[newGame.name]);
         if (nameCheck.rows.length < 1){
             const result = await db.query(`
-            INSERT INTO games (name, "image", "stockTotal", "categoryId", "pricePerDay") VALUES ($1, $2, $3, $4, $5);`,
+            INSERT 
+            INTO games (name, "image", "stockTotal", "categoryId", "pricePerDay") 
+            VALUES ($1, $2, $3, $4, $5);`,
             [newGame.name, newGame.image, newGame.stockTotal, newGame.categoryId, newGame.pricePerDay]);
             res.sendStatus(201);
         } else {
