@@ -13,8 +13,11 @@ export async function getCategories(req, res) {
 export async function postCategories(req, res){
     const newCategorie = req.body;
     try {
-        const check = await db.query(`SELECT * FROM categories WHERE name = $1;`,
-        [newCategorie.name]);
+        const check = await db.query(`
+            SELECT * 
+            FROM categories 
+            WHERE name = $1;
+        `, [newCategorie.name]);
         if (check.rows.length < 1){
             const result = await db.query(`
             INSERT INTO categories (name) VALUES ($1);`,
